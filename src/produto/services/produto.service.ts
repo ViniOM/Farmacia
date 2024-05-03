@@ -57,7 +57,7 @@ export class ProdutoService {
     });
     if (verificaNome)
       throw new HttpException(
-        `Categoria: ${produto.nome} Ja Existe!`,
+        `Produto: ${produto.nome} Ja Existe!`,
         HttpStatus.NOT_FOUND,
       );
 
