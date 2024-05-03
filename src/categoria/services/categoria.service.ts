@@ -50,7 +50,7 @@ export class CategoriaService {
     if (verificaNome)
       throw new HttpException(
         `Categoria: ${categoria.nome} Ja Existe!`,
-        HttpStatus.NOT_FOUND,
+        HttpStatus.BAD_REQUEST,
       );
 
     return await this.categoriaRepository.save(categoria);

@@ -7,7 +7,8 @@ import {
   HttpStatus,
   Param,
   ParseIntPipe,
-  Post
+  Post,
+  Put,
 } from '@nestjs/common';
 import { DeleteResult } from 'typeorm';
 import { Categoria } from '../entities/categoria.entity';
@@ -41,7 +42,7 @@ export class CategoriaController {
     return this.categoriaService.create(categoria);
   }
 
-  @Post('/atualizar')
+  @Put('/atualizar')
   @HttpCode(HttpStatus.OK)
   update(@Body() categoria: Categoria): Promise<Categoria> {
     return this.categoriaService.update(categoria);

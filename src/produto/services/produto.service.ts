@@ -43,7 +43,7 @@ export class ProdutoService {
     if (busca.length == 0)
       throw new HttpException(
         `Produto: ${nome} Não foi encontrado`,
-        HttpStatus.NOT_FOUND,
+        HttpStatus.BAD_REQUEST,
       );
 
     return busca;
@@ -58,7 +58,7 @@ export class ProdutoService {
     if (verificaNome)
       throw new HttpException(
         `Produto: ${produto.nome} Ja Existe!`,
-        HttpStatus.NOT_FOUND,
+        HttpStatus.BAD_REQUEST,
       );
 
     return await this.produtoRepository.save(produto);

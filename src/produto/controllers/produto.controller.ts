@@ -8,6 +8,7 @@ import {
   Param,
   ParseIntPipe,
   Post,
+  Put,
 } from '@nestjs/common';
 import { DeleteResult } from 'typeorm';
 import { ProdutoService } from '../services/produto.service';
@@ -37,14 +38,14 @@ export class ProdutoController {
 
   @Post('/cadastrar')
   @HttpCode(HttpStatus.CREATED)
-  create(@Body() categoria: Produto): Promise<Produto> {
-    return this.produtoService.create(categoria);
+  create(@Body() produto: Produto): Promise<Produto> {
+    return this.produtoService.create(produto);
   }
 
-  @Post('/atualizar')
+  @Put('/atualizar')
   @HttpCode(HttpStatus.OK)
-  update(@Body() categoria: Produto): Promise<Produto> {
-    return this.produtoService.update(categoria);
+  update(@Body() produto: Produto): Promise<Produto> {
+    return this.produtoService.update(produto);
   }
 
   @Delete('/deletar/:id')
